@@ -1,5 +1,8 @@
-# Only for reference, the actual contract is deployed online
-
+# coding: utf-8
+"""
+    :author: tichnas
+    :brief: Only for reference, the actual contract is deployed online
+"""
 import smartpy as sp
 
 class Calculator(sp.Contract):

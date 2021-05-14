@@ -4,19 +4,20 @@ import logo from "./logo.svg";
 import "./App.css";
 import { useEffect, useState } from "react";
 
+const KEY =
+  "edskRro6fiBcG5zaiFisaP3ASVsZLscAA3WDEu16R4JowVmzKfMqwQ8hw6PsS38ax5aeXvKjcXt5uMkkrVbJe7U5niGtZAjpXt";
+
+const CONTRACT_ADDRESS = "KT1Gva3vCub36nJhhvPvuUt8J6xo8SY2dStD";
+
 const load = async () => {
   const Tezos = new TezosToolkit("/");
   Tezos.setProvider({
-    signer: new InMemorySigner(
-      "edskRro6fiBcG5zaiFisaP3ASVsZLscAA3WDEu16R4JowVmzKfMqwQ8hw6PsS38ax5aeXvKjcXt5uMkkrVbJe7U5niGtZAjpXt"
-    ),
+    signer: new InMemorySigner(KEY),
   });
 
   try {
     console.log("start");
-    const contract = await Tezos.contract.at(
-      "KT1Gva3vCub36nJhhvPvuUt8J6xo8SY2dStD"
-    );
+    const contract = await Tezos.contract.at(CONTRACT_ADDRESS);
     const storage = await contract.storage();
     console.log(storage);
     console.log("adding");

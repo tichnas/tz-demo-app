@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# Interaction with Smart Contract using Taquito
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Running
 
-## Available Scripts
+1. `npm install`
+2. `npm start`
+3. Go to [http://localhost:3000](http://localhost:3000)
+4. View console to check status of the call to deployed contract (will be replaced by interactive UI soon).
 
-In the project directory, you can run:
+## Updating Smart Contract
 
-### `npm start`
+### Getting & Activating Faucet Account
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Go to [https://faucet.tzalpha.net/](https://faucet.tzalpha.net/)
+2. Click `Get Testnet` after proving you're not a robot ;)
+3. Copy (or download) the JSON obtained.
+4. Go to [https://smartpy.io/wallet.html](https://smartpy.io/wallet.html)
+5. Under `Faucet Importer` point 2, paste the JSON obtained.
+6. Click `Compute your private key`, and save the key somewhere.
+7. Click `Activate account`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Deploying Smart Contract
 
-### `npm test`
+1. Go to [http://smartpy.io/ide](http://smartpy.io/ide)
+2. Paste the contract in the editor.
+3. Click on `RUN` button.
+4. If all the tests pass, a tab named `Deploy Michelson Contract` will appear on the right, go to that.
+5. Click `Deploy Michilson Contract` button.
+6. Choose `Edonet` (of SmartPy.io Nodes) in Node and Network.
+7. Choose `Wallet` > `SmartPy` > `Faucet`
+8. Under `Copy & Paste`, paste the JSON of Faucet account.
+9. Click `Deploy Contract` at the end.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Changing the app code
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Update `/src/contract.py` (for future reference)
+2. Change variables `KEY` and `CONTRACT_ADDRESS` in `src/App.js` to the account's private key and the address of deployed contract respectively.
+3. Change `proxy` in `package.json` to the address of RPC node used.
+4. Restart the app

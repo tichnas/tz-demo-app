@@ -3,9 +3,8 @@
 ## Running
 
 1. `npm install`
-2. `npm start`
-3. Go to [http://localhost:3000](http://localhost:3000)
-4. View console to check status of the call to deployed contract (will be replaced by interactive UI soon).
+2. `npm run serve`
+3. Go to [http://localhost:8080](http://localhost:8080)
 
 ## Updating Smart Contract
 
@@ -34,6 +33,6 @@
 ### Changing the app code
 
 1. Update `/src/contract.py` (for future reference)
-2. Change variables `KEY` and `CONTRACT_ADDRESS` in `src/App.js` to the account's private key and the address of deployed contract respectively.
-3. Change `proxy` in `package.json` to the address of RPC node used.
-4. Restart the app
+2. Change variable `RPC_ADDRESS` to the address of RPC node (`https://edonet.smartpy.io/` in our case)
+3. Change variable `KEY` to the account's private key
+4. Change variable `CONTRACT_ADDRESS` to the address of deployed contract
